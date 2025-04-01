@@ -19,3 +19,8 @@ python manage.py migrate
 ```
 python .\manage.py runserver
 ```
+
+- conexão DB:
+```
+python \.manage.py startapp projects
+```
