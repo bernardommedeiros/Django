@@ -1,26 +1,6 @@
 # Django
 
-- Ativação do ambiente virtual:
-```
-setup_env/Scripts/activate
-```
+Projeto de plataforma de ensino, com cadastro e autenticação de usuários e registro de atividades dentro do sistema.
 
-- inicialização de um novo projeto:
-```
-django-admin startproject
-```
-
-- inicialização do banco de dados:
-```
-python manage.py migrate
-```
-
-- RUN:
-```
-python .\manage.py runserver
-```
-
-- conexão DB:
-```
-python \.manage.py startapp projects
-```
+## Objetivo
+Treinar e aprender a tecnologia Django e sua conexão com o banco de dados utilizando sqlite.
