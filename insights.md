@@ -35,3 +35,36 @@ python .\manage.py migrate
 ```
 python .\manage.py createsuperuser 
 ````
+
+## navegação do projeto pelo Shell
+
+- ativação na venv:
+```
+python .\manage.py shell
+```
+
+- importação dos apps/objetos:
+```
+from projeto.models import Topic
+```
+
+- seleciona todos os topicos e armazena na variavel:
+```
+topic = Topic.objects.all()
+```
+
+- seleciona o topico com um id especifico, podendo manipular seus atributos especificos:
+```
+ t = Topic.objects.get(id=x)
+```
+
+- seleciona todos os topicos:
+```
+for topic in topics:
+    print(topic.id, topic)
+```
+
+- utiliza da chave estrangeira para pegar a descrição do topico:
+```
+t.entry_set.all()
+```

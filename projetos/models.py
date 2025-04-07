@@ -31,4 +31,4 @@ class Entry(models.Model):
     def __str__ (self):
         """retorna uma presentação en string do modelo"""
         return self.text[:50] + '....'
-        # limita a 50 char 
+        # limita a descrição a 50 char 
