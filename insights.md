@@ -20,7 +20,13 @@ python manage.py migrate
 python .\manage.py runserver
 ```
 
-- conexão DB:
+- conexão DB (migrations):
 ```
-python \.manage.py startapp projects
+python .\manage.py startapp projects
+python .\manage.py makemigrations projetos 
 ```
+
+- criação de tabela no DB:
+```
+python .\manage.py migrate   
+````
