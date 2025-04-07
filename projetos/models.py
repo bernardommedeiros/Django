@@ -13,3 +13,22 @@ class Topic(models.Model):
     def __str__(self):
         """ Retorna uma representação em string do modelo """
         return self.text
+    
+    # texto de entrada, anotação dentro do topico
+class Entry(models.Model):
+    """Algo específico aprendido sobre o assunto do topico"""
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    text = models.TextField()
+    date_added=models.DateTimeField(auto_now_add=True)
+
+    # on delete -> obrigatório
+    # para cada entrada de um topico
+    
+    class Meta:
+        verbose_name_plural = 'entries'
+        # automaticamente o django adiciona apenas um S no final para plural
+        
+    def __str__ (self):
+        """retorna uma presentação en string do modelo"""
+        return self.text[:50] + '....'
+        # limita a 50 char 

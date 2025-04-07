@@ -30,3 +30,8 @@ python .\manage.py makemigrations projetos
 ```
 python .\manage.py migrate   
 ````
+
+- painel administrativo:
+```
+python .\manage.py createsuperuser 
+````
