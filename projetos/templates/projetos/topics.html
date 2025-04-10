@@ -1,0 +1,18 @@
+{% extends "projetos/base.html" %}
+
+{% block content %}
+
+<h2> Topicos registrados </h2>
+
+<ul> 
+    {% for topic in topics %}
+    {% comment %} leitura de variavel {% endcomment %}
+    <li> {{ topic }} </li>
+    {% comment %} verificação caso não haja topicos cadastrados {% endcomment %}
+    {% empty %}
+    <li> {{ topic }} </li>
+    {% comment %} final do for {% endcomment %}
+    {% endfor %}
+</ul>
+
+{% endblock content %}
