@@ -11,7 +11,7 @@
                 <p>{{ entry.text | linebreaks }}</p>
             </li>
 
-            {% endfor %}
+            {% empty %}
             <li> Não há nenhum tópico registrado </li>
         {% endfor %}
     </ul>
