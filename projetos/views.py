@@ -49,21 +49,27 @@ def new_topic(request):
             # redireciona para outra pagina - nesse caso é interessante colocar uma url definida quando fizer deploy do projeto, então utiliza-se o reverse que pega como base o name da url, para direcionar para a pagina indicada no arquivo urls
             return HttpResponseRedirect(reverse('topics'))
         
-    context = {'form': form}
+    context = {'form':form}
     return render(request, 'projetos/new_topic.html', context)
         
         
 
 def new_entry(request, topic_id):
     topic = Topic.objects.get(id = topic_id)
-    # POST -> verifica se há dados submetidos. Caso o if der true cria-se um form em branco
+    # POST -> verifica se há dados submetidos. Caso o if for true cria-se um form em branco
     
     if request.method != 'POST': 
-        form = TopicForm()
+        form = EntryForm()
     else:
-        # indicação de qualk topico essa entrada se refere
-        form = EntryForm(data=request.POST)
-        return HttpResponseRedirect(reverse('topics'))
+        # indicação de qual topico essa entrada se refere
+        form = EntryForm(data=request.POST) 
+        if form.is_valid():
+            # argumento serve para nao salvar direto no DB, criando um objeto com um outro campo para a entrada do topico
+            new_entry = form.save(commit=False) 
+            new_entry.topic = topic
+            new_entry.save()
+            return HttpResponseRedirect(reverse('topic', args=[topic_id]))
         
-    context = {'form': form}
-    return render(request, 'projetos/new_topic.html', context)
+        
+    context = {'topic':topic, 'form':form}
+    return render(request, 'projetos/new_entry.html', context)
