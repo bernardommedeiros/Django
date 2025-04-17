@@ -1,0 +1,17 @@
+{% extends "projetos/base.html" %}
+
+{% block content %}
+    
+    <p><a href="{% url 'topic' tpic.id %}"></p>
+
+    <p>Editar anotação: </p>
+
+    <form action="{% url 'edit_entry' entry.id%}" method="post">
+        {% crsf_token %}
+        
+        {{ form.as_p }}
+
+        <button name="submit"> Salvar </button>
+{% endblock content %}
+
+
