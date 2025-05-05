@@ -1,0 +1,21 @@
+{% extends "projetos/base.html" %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p> Usuário e senha incorretos. Tente novamente. </p>
+    {%  endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {%  csrf_token %}
+        {{ form.as_p }}
+
+        <button> Entrar </button>
+
+        {% comment %}  next -> para onde o user é enviado após autenticação bem sucedida {% endcomment %}
+        <input type="hidden" name="next" value="{% url 'index %}" />
+    </form>
+
+
+
+{% endblock content %}

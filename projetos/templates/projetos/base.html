@@ -1,5 +1,13 @@
-<a href="{% url 'index' %}"> <h1> Learning Log </h1> </a>
-<a href="{% url 'topics' %}"> <h2> Tópicos </h2> </a>
+<div>
+    <a href="{% url 'index' %}"> <h1> Learning Log </h1> </a>
+    <a href="{% url 'topics' %}"> <h2> Tópicos </h2> </a>
+    {% comment %} verifica se há um usuário autenticado {% endcomment %}
+    {% if user.is_authenticated %}
+        Olá, {{ user.username }}
+
+    {% else %}
+        <a href="{% url 'login' %}"> Entrar </a>
+</div>
 
 {% comment %} IMPORTAÇÃO DO ARQUIVO FILHO PELO BLOCK {% endcomment %}
 {% block content %} {% endblock content %}

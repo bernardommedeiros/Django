@@ -1,8 +1,13 @@
 # Conceitos importantes ao decorrer do curso, para manipulação do ambiente virtual, banco de dados e do projeto em geral.
 
+- Criação do ambiente virtual:
+```
+python -m venv venv
+```
+
 - Ativação do ambiente virtual:
 ```
-setup_env/Scripts/activate
+venv/Scripts/activate
 ```
 
 - inicialização de um novo projeto:
@@ -22,19 +27,29 @@ python .\manage.py runserver
 
 - conexão DB (migrations):
 ```
-python .\manage.py startapp projects
+python .\manage.py startapp projetos
 python .\manage.py makemigrations projetos 
 ```
 
 - criação de tabela no DB:
+
 ```
 python .\manage.py migrate   
 ````
 
 - painel administrativo:
+
 ```
 python .\manage.py createsuperuser 
 ````
+
+- criação de um novo app:
+
+```
+python .\manage.py  startapp nome_do_projeto
+````
+
+
 
 ## navegação do projeto pelo Shell
 

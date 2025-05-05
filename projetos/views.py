@@ -83,16 +83,18 @@ def edit_entry(request, entry_id):
     topic = entry.topic 
     
     if request.method != 'POST': 
-        # verifica se o formulario está preenchido / já existe
+        # garante que o formulario irá ser preenchido pela entrada antiga
         form = EntryForm(instance=entry)
         
         
     else:
-        # dados post são processados e salvos no db
-        form = EntryForm(instance=entry)
+        # acionado apos submeter os dados
+        # pega o dado anterior e atualiza com os dados da requisição post
+        form = EntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('topic', args='edit_entry'))
+            # salva no DB
+            return HttpResponseRedirect(reverse('topic', args=[topic.id]))
         
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'projetos/edit_entry.html', context)
